@@ -10,6 +10,8 @@ Setting up phan analyzer for debian 8 (php7.0)
 ### Analyzing
 `phan --include-analysis-file-list path/to/file.php`
 
+> Note: Since, phan is very memory intensive, it is advisable to setup some swap space on low memory systems.
+
 ### Setting up githook
 ```
 DIFF_FILES=`git diff --cached --name-only --diff-filter=ACMR HEAD | grep \\.php`
