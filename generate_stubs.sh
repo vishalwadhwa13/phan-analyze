@@ -5,7 +5,7 @@ set -eu -o pipefail
 mkdir -p tmp
 
 if [ ! -d tmp/phan ]; then
-    RELEASE=${1:-$(curl -s "https://api.github.com/repos/$(REPO)/releases/latest" | grep 'tag_name' | cut -d'"' -f4)}
+    RELEASE=${1:-$(curl -s "https://api.github.com/repos/phan/phan/releases/latest" | grep 'tag_name' | cut -d'"' -f4)}
     git clone -b $RELEASE https://github.com/phan/phan tmp/phan
     cd tmp/phan
     composer install
