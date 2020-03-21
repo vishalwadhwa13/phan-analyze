@@ -28,7 +28,7 @@ There are two ways to generate stubs. Both of them copy stubs to `.phan/stubs`
 - Use `make generate_stubs` to generate stubs for extensions which are present in `stublist.txt` and are enabled in `php` installed on your system.
 
 #### Fetching
-- Other way is to use [phpstorm-stubs] (https://github.com/JetBrains/phpstorm-stubs) from JetBrains
+- Other way is to use [phpstorm-stubs](https://github.com/JetBrains/phpstorm-stubs) from JetBrains
 - Running `make get_stubs` will fetch available stubs from `stublist.txt`
 
 ### Stopping analysis
