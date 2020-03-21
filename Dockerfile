@@ -8,9 +8,10 @@ WORKDIR /root
 RUN curl -L https://github.com/phan/phan/releases/download/${RELEASE}/phan.phar -o phan.phar
 
 # php ast
-RUN apk add --no-cache --update --virtual .phan-deps autoconf g++ libtool make $PHPIZE_DEPS
-RUN pecl install ast && docker-php-ext-enable ast
-RUN apk del .phan-deps
+RUN apk add --no-cache --update --virtual .phan-deps autoconf g++ libtool make $PHPIZE_DEPS && \
+    pecl install ast && \
+    docker-php-ext-enable ast && \
+    apk del .phan-deps
 
 WORKDIR /src
 
