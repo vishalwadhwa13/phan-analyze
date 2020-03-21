@@ -1,2 +1,8 @@
 phan.tar.gz
+.phan/stubs
+
+stublist.txt
+
+tmp/
+
 tags

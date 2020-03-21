@@ -3,9 +3,11 @@ declare(strict_types=1);
 
 return [
     'target_php_version' => '7.0',
-    'directory_list' => ['modules'],//, 'admin', 'modules', 'api', 'vendor'],
+    'directory_list' => [
+        'modules', '.phan/stubs'
+    ],//, 'admin', 'modules', 'api', 'vendor'],
     'exclude_analysis_directory_list' => [
-        'vendor', 'admin', 'api', 'modules'
+        'vendor', 'admin', 'api', 'modules', '.phan/stubs'
     ],
     'exclude_file_regex' => '@.*(oven|tests?)\/.+@', // not even sure if its working :)
     'baseline_path' => null,
