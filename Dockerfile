@@ -1,19 +1,17 @@
 FROM php:7.4-alpine
 
+ARG RELEASE
+
 WORKDIR /root
 
-RUN apk add --no-cache --update --virtual .phan-deps autoconf g++ libtool make $PHPIZE_DEPS && \
-    pecl install ast && \
-    docker-php-ext-enable ast && \
-    curl -L https://github.com/phan/phan/releases/download/2.4.9/phan.phar -o phan.phar && \
-    apk del .phan-deps
+# phan
+RUN curl -L https://github.com/phan/phan/releases/download/${RELEASE}/phan.phar -o phan.phar
 
-WORKDIR /src 
-# CMD ["php", "-v"]
-# CMD ["php", "-i"]
-# CMD ["php --ini"]
-# ENV TERM xterm-256color
+# php ast
+RUN apk add --no-cache --update --virtual .phan-deps autoconf g++ libtool make $PHPIZE_DEPS
+RUN pecl install ast && docker-php-ext-enable ast
+RUN apk del .phan-deps
+
+WORKDIR /src
 
 ENTRYPOINT ["php", "/root/phan.phar"]
-
-
