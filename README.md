@@ -21,6 +21,16 @@ phan --include-analysis-file-list $DIFF_FILES
 exit $?
 ```
 
+### Getting stubs
+There are two ways to generate stubs. Both of them copy stubs to `.phan/stubs`
+
+#### Generating
+- Use `make generate_stubs` to generate stubs for extensions which are present in `stublist.txt` and are enabled in `php` installed on your system.
+
+#### Fetching
+- Other way is to use [phpstorm-stubs] (https://github.com/JetBrains/phpstorm-stubs) from JetBrains
+- Running `make get_stubs` will fetch available stubs from `stublist.txt`
+
 ### Stopping analysis
 > Note: `C-c` doesn't work. 
 1. Stop the container (`docker stop phan-analyze`)

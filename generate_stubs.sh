@@ -14,8 +14,8 @@ fi
 
 mkdir -p .phan/stubs
 
-extensions=$(cat stublist.txt | tr '\n' ' ')
-for ext in $extensions; do
+exts=$(cat stublist.txt | tr '\n' ' ')
+for ext in $exts; do
     echo "* Generating stub for $ext"
-    tmp/phan/tool/make_stubs -e ${ext} > .phan/stubs/${ext}.phan_php
+    tmp/phan/tool/make_stubs -e ${ext} >.phan/stubs/${ext}.phan_php
 done
