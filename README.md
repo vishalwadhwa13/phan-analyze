@@ -8,7 +8,7 @@ Setting up phan analyzer for debian 8 (php7.0)
 4. Hardlink `.phan` directory to project root if you want to sync changes with this directory otherwise you can just do a normal copy (Hardlink: `cp -lr .phan $PROJECT_ROOT`)
 
 ### Analyzing
-`phan --include-analysis-file-list path/to/file.php`
+`phan --include-analysis-file-list path/to/fileA.php,path/to/fileB.php`
 
 > Note: Since, phan is very memory intensive, it is advisable to setup some swap space on low memory systems.
 
