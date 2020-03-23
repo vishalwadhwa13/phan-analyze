@@ -11,6 +11,7 @@ RUN curl -L https://github.com/phan/phan/releases/download/${RELEASE}/phan.phar 
 RUN apk add --no-cache --update --virtual .phan-deps autoconf g++ libtool make $PHPIZE_DEPS && \
     pecl install ast && \
     docker-php-ext-enable ast && \
+    docker-php-ext-install pcntl && \
     apk del .phan-deps
 
 WORKDIR /src
