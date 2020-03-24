@@ -10,7 +10,7 @@ if [ ! -d tmp/phpstorm-stubs ]; then
 fi
 
 exts=$(ls tmp/phpstorm-stubs | grep -xf stublist.txt)
-echo "Extensions:\n$exts"
 for ext in $exts; do
+    echo "* Getting stub for $ext"
     cp -r tmp/phpstorm-stubs/$ext .phan/stubs/
 done

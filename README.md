@@ -14,7 +14,7 @@ Setting up phan analyzer for debian 8 (php7.0)
 
 ### Setting up githook
 ```
-DIFF_FILES=`git diff --cached --name-only --diff-filter=ACMR HEAD | grep \\.php`
+DIFF_FILES=`git diff --cached --name-only --diff-filter=ACMR HEAD | grep \\.php | paste -sd,`
 
 echo '***** Running Phan Static Code Analyzer on diff files *****'
 phan --include-analysis-file-list $DIFF_FILES
